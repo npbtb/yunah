@@ -1,47 +1,151 @@
-/* Reset some default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body and global styles */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4;
 }
 
 header {
-    background-color: #333;
+    background-color: #1a1a1a; /* Dark header */
     color: white;
-    padding: 1rem;
+    padding: 20px;
     text-align: center;
 }
 
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
+header .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-nav ul li {
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
     margin: 0 15px;
 }
 
-nav ul li a {
+header nav ul li a {
     color: white;
     text-decoration: none;
+    font-size: 1.2rem;
 }
 
-section {
-    padding: 2rem;
-    background-color: white;
+/* Hero Section */
+.hero {
+    position: relative;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    opacity: 0.7;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+}
+
+/* About Section */
+#about {
+    background-color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+}
+
+#about p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Gallery Section */
+.gallery {
+    background-color: #fff;
+    padding: 40px 20px;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.fancam-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.fancam-item video {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.fancam-item h3 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+
+.fancam-item p {
+    color: #777;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #f4f4f4;
+    padding: 40px;
+    text-align: center;
+}
+
+#contact form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#contact button {
+    background-color: #ff6600;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #333;
+    background-color: #1a1a1a;
     color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 40px;
 }
