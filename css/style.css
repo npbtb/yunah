@@ -1,4 +1,8 @@
 /* General Styles */
+* {
+    box-sizing: border-box; /* Ensure consistent box sizing */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,6 +10,7 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Header Section */
 header {
     background-color: #1a1a1a; /* Dark header */
     color: white;
@@ -37,6 +42,12 @@ header nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ff6600; /* Stylish hover effect */
+    text-decoration: underline;
 }
 
 /* Hero Section */
@@ -59,6 +70,7 @@ header nav ul li a {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 2rem;
+    z-index: 1; /* Ensure text is above image */
 }
 
 /* About Section */
@@ -84,31 +96,36 @@ header nav ul li a {
     padding: 40px 20px;
 }
 
+/* Unified Gallery Container (Merged Duplicate) */
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Flexible grid */
     gap: 20px;
+    padding: 20px;
+    justify-items: center;
 }
 
-.fancam-item {
+/* Gallery Items */
+.gallery-item {
     background-color: #f9f9f9;
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    overflow: hidden; /* Prevents image overflow */
 }
 
-.fancam-item video {
+.gallery-item img {
     width: 100%;
-    border-radius: 8px;
+    max-width: 400px; /* Limit image size */
+    height: auto;
+    border-radius: 10px; /* Rounded corners */
 }
 
-.fancam-item h3 {
-    font-size: 1.5rem;
-    margin-top: 15px;
-}
-
-.fancam-item p {
+.gallery-item p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
     color: #777;
 }
 
@@ -133,6 +150,11 @@ header nav ul li a {
     border: 1px solid #ccc;
 }
 
+#contact input:focus,
+#contact textarea:focus {
+    outline: 2px solid #ff6600; /* Visible focus indicator */
+}
+
 #contact button {
     background-color: #ff6600;
     color: white;
@@ -140,12 +162,39 @@ header nav ul li a {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+#contact button:hover {
+    background-color: #cc5500; /* Darker hover effect */
+}
+
+/* Footer */
 footer {
     background-color: #1a1a1a;
     color: white;
     text-align: center;
     padding: 10px;
     margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: 1fr; /* One column on small screens */
+    }
+
+    header h1 {
+        font-size: 2rem; /* Smaller header on mobile */
+    }
+
+    .hero-text {
+        font-size: 1.5rem; /* Smaller hero text */
+    }
+}
+
+@media (max-width: 480px) {
+    #about, #contact {
+        padding: 20px; /* Less padding for small screens */
+    }
 }

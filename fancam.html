@@ -1,53 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yunah Fancam</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- Ensure the path is correct -->
 </head>
+
 <body>
+
     <!-- Header Section -->
     <header>
         <h1>Yunah's Fancam Gallery</h1>
-        <nav>
+        <nav aria-label="Main Navigation"> <!-- Improved accessibility -->
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="livestream.html">Live</a></li>
-                <li><a href="magazine.html">Magazine</a></li>
-                <li><a href="fancam.html">Fancam</a></li>
-                <li><a href="radio.html">Radio</a></li>
+                <li><a href="index.html" title="Go to Home">Home</a></li>
+                <li><a href="livestream.html" title="Watch Live">Live</a></li>
+                <li><a href="magazine.html" title="Read the Magazine">Magazine</a></li>
+                <li><a href="fancam.html" title="Explore Fancams">Fancam</a></li>
+                <li><a href="radio.html" title="Listen to the Radio">Radio</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Featured Fancam Video -->
-    <section id="featured-fancam">
-        <h2>Featured Fancam</h2>
-        <div class="video-container">
-            <!-- 现在是用图片点击跳转到 YouTube -->
-            <a href="https://www.youtube.com/watch?v=UElcvkLHn_M&autoplay=1" target="_blank">
-                <img src="https://img.youtube.com/vi/UElcvkLHn_M/0.jpg" alt="Yunah Fancam" style="width:100%; max-width:560px; cursor:pointer;">
-            </a>
-        </div>
-        <p class="video-description">Watch Yunah's amazing performance from the last concert!</p>
-    </section>
-
     <!-- Image Gallery Section -->
     <section id="gallery">
-        <h2>Fancam Photos</h2>
+        <h2>Fancams</h2>
+
         <div class="gallery-container">
             <!-- Fancam Image 1 -->
             <div class="gallery-item">
-                <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID&autoplay=1" target="_blank">
-                    <img src="yunah.avif" alt="Yunah in concert 1">
+                <a href="https://www.youtube.com/watch?v=UElcvkLHn_M&si=qYR7MXyb17zwnCmC&autoplay=1" 
+                   target="_blank" 
+                   title="Watch Yunah's Powerful Performance">
+                    <img src="https://img.youtube.com/vi/UElcvkLHn_M/maxresdefault.jpg" alt="Yunah in concert 1">
                 </a>
-                <p>Yunah giving a powerful performance.</p>
+                <p>[MPD직캠] 아일릿 윤아 직캠 4K 'Magnetic'</p>
             </div>
             
+
             <!-- Fancam Image 2 -->
             <div class="gallery-item">
-                <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID&autoplay=1" target="_blank">
+                <a href="https://www.youtube.com/embed/xyz789abc?autoplay=1" target="_blank" title="Watch Yunah's Heartfelt Moment">
                     <img src="images/yunah-image2.jpg" alt="Yunah in concert 2">
                 </a>
                 <p>Yunah's heartfelt moment with the audience.</p>
@@ -55,12 +50,21 @@
 
             <!-- Fancam Image 3 -->
             <div class="gallery-item">
-                <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID&autoplay=1" target="_blank">
+                <a href="https://www.youtube.com/embed/ijk456pqr?autoplay=1" target="_blank" title="Watch Yunah's Energetic Dance Moves">
                     <img src="images/yunah-image3.jpg" alt="Yunah in concert 3">
                 </a>
                 <p>Yunah's energetic dance moves during the show.</p>
             </div>
+
+            <!-- Fancam Image 4 -->
+            <div class="gallery-item">
+                <a href="https://www.youtube.com/embed/lmn789opq?autoplay=1" target="_blank" title="Watch Yunah's Charming Smile">
+                    <img src="images/yunah-image4.jpg" alt="Yunah in concert 4">
+                </a>
+                <p>Yunah's charming smile lights up the stage.</p>
+            </div>
         </div>
+
     </section>
 
     <!-- Footer Section -->
@@ -68,6 +72,6 @@
         <p>&copy; 2025 Yunah Fancam | All Rights Reserved</p>
     </footer>
 
-    <script src="js/script.js"></script>
 </body>
+
 </html>
