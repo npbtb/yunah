@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yunah Fancam Gallery</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- 可选CSS样式 -->
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Yunah's Fancam Gallery</h1>
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="livestream.html">Live</a></li>
+                <li><a href="magazine.html">Magazine</a></li>
+                <li><a href="fancam.html">Fancam</a></li>
+                <li><a href="radio.html">Radio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Fancams</h2>
+        <div class="gallery-container" id="galleryContainer"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Yunah Fancam | All Rights Reserved</p>
+    </footer>
+
+    <!-- JavaScript for Dynamic Content -->
+    <script>
+        // 1️⃣ 输入你的 YouTube 视频 ID 和标题
+        const videos = [
+            { id: "UElcvkLHn_M", title: "[MPD직캠] 아일릿 윤아 'Magnetic'" },
+            { id: "A4qoktWoSYE", title: "[MPD직캠] 아일릿 윤아 'My World'" },
+            { id: "1JZlMa_BCdk", title: "[입덕직캠] 아일릿 윤아 'Magnetic'" },
+            { id: "d82TX9pYfMo", title: "[입덕직캠] 아일릿 윤아 'My World'" },
+            { id: "9LFJddu-ohw", title: "[MPD직캠] 아일릿 윤아 'Magnetic' 240328" },
+            { id: "2AQ1ZdVUD_E", title: "[K-Fancam] 아일릿 윤아 'Magnetic' 240329" },
+            { id: "t9v8F2Q4tmQ", title: "[얼빡직캠] 아일릿 윤아 'Magnetic' 240329" },
+            { id: "bpdBx9Jt2fA", title: "[예능연구소] 아일릿 윤아 'Magnetic' @MBC 240330" },
+            { id: "sGpX4hNIfNc", title: "[페이스캠] 아일릿 윤아 'Magnetic' @SBS 240331" }
+        ];
+
+        // 2️⃣ 自动生成视频 HTML
+        const galleryContainer = document.getElementById('galleryContainer');
+
+        videos.forEach(video => {
+            const videoHTML = `
+                <figure class="gallery-item">
+                    <a href="https://www.youtube.com/watch?v=${video.id}&autoplay=1" target="_blank" title="Watch ${video.title}">
+                        <img src="https://img.youtube.com/vi/${video.id}/maxresdefault.jpg" alt="${video.title}">
+                    </a>
+                    <figcaption>${video.title}</figcaption>
+                </figure>
+            `;
+            galleryContainer.innerHTML += videoHTML;
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,69 +1,25 @@
-import requests
-from bs4 import BeautifulSoup
+import yt_dlp
 
-def get_playlist_videos(playlist_url):
-    # Get the page content
-    response = requests.get(playlist_url)
-    if response.status_code != 200:
-        print("Failed to fetch playlist. Check the URL and try again.")
-        return []
+# 1️⃣ 用户输入 YouTube 播放列表 URL
+playlist_url = input("请输入 YouTube 播放列表 URL: ")
 
-    # Parse the HTML content using BeautifulSoup
-    soup = BeautifulSoup(response.text, 'html.parser')
+try:
+    # 2️⃣ 设置 yt-dlp 参数，提取播放列表信息
+    ydl_opts = {
+        'quiet': True,  # 静默模式
+        'extract_flat': True,  # 只解析，不下载
+        'force_generic_extractor': True,  # 强制使用通用解析器
+    }
 
-    # Extract video titles and links
-    videos = []
-    for video in soup.find_all('a', {'id': 'video-title'}):
-        title = video.text.strip()
-        video_url = "https://www.youtube.com" + video['href']
-        videos.append((title, video_url))
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        info = ydl.extract_info(playlist_url, download=False)
+        
+        print(f"\n🎥 找到 {len(info['entries'])} 个视频:\n")
+        
+        # 3️⃣ 遍历播放列表，输出标题和链接
+        for index, video in enumerate(info['entries'], start=1):
+            print(f"{index}. {video['title']} - {video['url']}")
 
-    return videos
+except Exception as e:
+    print(f"\n❌ 发生错误: {e}")
 
-def create_html_gallery(videos, output_file="gallery.html"):
-    # Basic HTML structure
-    html_content = """
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>YouTube Playlist Gallery</title>
-        <style>
-            body { font-family: Arial, sans-serif; background: #f9f9f9; text-align: center; }
-            .container { width: 80%; margin: auto; }
-            .video { margin: 20px 0; }
-            iframe { width: 560px; height: 315px; }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>YouTube Playlist Gallery</h1>
-    """
-
-    # Add each video to the HTML
-    for title, video_url in videos:
-        video_id = video_url.split('v=')[1].split('&')[0]
-        html_content += f"""
-            <div class="video">
-                <h2>{title}</h2>
-                <iframe src="https://www.youtube.com/embed/{video_id}" frameborder="0" allowfullscreen></iframe>
-            </div>
-        """
-
-    # Close the HTML structure
-    html_content += """
-        </div>
-    </body>
-    </html>
-    """
-
-    # Save to a file
-    with open(output_file, "w", encoding="utf-8") as f:
-        f.write(html_content)
-    print(f"Gallery saved to {output_file}")
-
-if __name__ == "__main__":
-    playlist_url = input("Enter the YouTube playlist URL: ")
-    videos = get_playlist_videos(playlist_url)
-    if videos:
-        create_html_gallery(videos)
